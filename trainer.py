@@ -268,7 +268,7 @@ class Prepare:
         with open(yaml_src, "w") as yaml:
             lines = [
                 f"# {self.model_name}.yaml\n\n", "# Paths\n",
-                f"path:  C:/Users/James/Desktop/Codes/YOLO/datasets/{self.model_name}  # root dataset directory\n",
+                f"path:  {self.root}/datasets/{self.model_name}  # root dataset directory\n",
                 f"train: {self.export_path['train']['images']}\n",
                 f"val: {self.export_path['val']['images']}\n\n"
                 "# Number of classes\n",
