@@ -1,0 +1,12 @@
+# animal-classifier-tiger.yaml
+
+# Paths
+path:  C:/Users/James/Desktop/Codes/YOLO/datasets/animal-classifier-tiger  # root dataset directory
+train: C:/Users/James/Desktop/Codes/YOLO/datasets/animal-classifier-tiger/train/images
+val: C:/Users/James/Desktop/Codes/YOLO/datasets/animal-classifier-tiger/val/images
+
+# Number of classes
+nc: 1
+
+# Class names
+names: ['tiger']

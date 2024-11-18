@@ -1,0 +1,12 @@
+# clownfish.yaml
+
+# Paths
+path:  C:/Users/James/Desktop/Codes/YOLO/datasets/clownfish  # root dataset directory
+train: C:/Users/James/Desktop/Codes/YOLO/datasets/clownfish/train/images
+val: C:/Users/James/Desktop/Codes/YOLO/datasets/clownfish/val/images
+
+# Number of classes
+nc: 1
+
+# Class names
+names: ['clownfish']
