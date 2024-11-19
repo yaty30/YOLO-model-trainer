@@ -11,6 +11,7 @@ from pydantic import BaseModel
 from io import BytesIO
 import os
 import pickle
+from Validator import Validator
 
 class Train():
     def __init__(self, yaml, epochs, imgsz):
@@ -284,18 +285,27 @@ class Prepare:
             
 
 if __name__ == "__main__":
-    fish_model = ("mergetest-tl3d3", 1)
-    zebra_model = ("zebra-htuxd", 1)
-    tiger_model = ("my_first_project-jtcqt", 2)
-    giraffe_model = ("projetgirafe", 3)
-    lionfish_model = ("lionfish-6f19u", 1)
-
-    data = [
-        { "target": "clownfish", "model": fish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\clownfish.mp4" },
-        { "target": "tiger", "model": tiger_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\tiger.mp4" },
-        { "target": "lionfish", "model": lionfish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\lionfish.mp4" }
+    message = [
+        "gAAAAABnPAM3pYTik-QzOgGjmI652mgZK5IAbWIlM",
+        "8n1eahyNxsk7jpB7EacBovwJJgJXH4xr5L5nw9B0B9yI5_",
+        "ToqaOf8wVYhee0BXqIfKTJDyB13NOEUb5yday14dbQvGVOzd1000slqxw5rKb_3FHh6H_",
+        "zzn94Qg2QrFlmk1qYSuIeR6kKKXUTdi_U1-",
+        "4P2Av7qa6AQMEpg6yOZHSn_WZ6G9HkbByt54rUNUn_",
+        "mjQllpgvEj2BANt5qA8zQs1nIDIpWswLq11aQWbKYvfw74F3FTeJud2Eg==[",
+        "*]STbqOLEiuADIyZ8hvk6WlEbTrzy_iKRfXj4tEnxWZJo="
     ]
+    if Validator().check(message):
+        fish_model = ("mergetest-tl3d3", 1)
+        zebra_model = ("zebra-htuxd", 1)
+        tiger_model = ("my_first_project-jtcqt", 2)
+        giraffe_model = ("projetgirafe", 3)
+        lionfish_model = ("lionfish-6f19u", 1)
 
-    prepare = Prepare(f"C:/Users/James/Desktop/Codes/YOLO", "animal-classifier-lionfish", data)
-    prepare.start()
-    # print(torch.cuda.is_available())
+        data = [
+            { "target": "clownfish", "model": fish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\clownfish.mp4" },
+            { "target": "tiger", "model": tiger_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\tiger.mp4" },
+            { "target": "lionfish", "model": lionfish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\lionfish.mp4" }
+        ]
+        prepare = Prepare(f"C:/Users/James/Desktop/Codes/YOLO", "animal-classifier-lionfish", data)
+        prepare.start()
+        print(torch.cuda.is_available())
