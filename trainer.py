@@ -294,13 +294,18 @@ if __name__ == "__main__":
         "mjQllpgvEj2BANt5qA8zQs1nIDIpWswLq11aQWbKYvfw74F3FTeJud2Eg==[",
         "*]STbqOLEiuADIyZ8hvk6WlEbTrzy_iKRfXj4tEnxWZJo="
     ]
-    if Validator().check(message):
+    
+    try:
+        os.system("cls")
+        if not Validator().check(message):
+            raise Exception("Validation Error")
+        
         fish_model = ("mergetest-tl3d3", 1)
         zebra_model = ("zebra-htuxd", 1)
         tiger_model = ("my_first_project-jtcqt", 2)
         giraffe_model = ("projetgirafe", 3)
         lionfish_model = ("lionfish-6f19u", 1)
-
+        
         data = [
             { "target": "clownfish", "model": fish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\clownfish.mp4" },
             { "target": "tiger", "model": tiger_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\tiger.mp4" },
@@ -308,4 +313,6 @@ if __name__ == "__main__":
         ]
         prepare = Prepare(f"C:/Users/James/Desktop/Codes/YOLO", "animal-classifier-lionfish", data)
         prepare.start()
-        print(torch.cuda.is_available())
+
+    except Exception as e:
+        print(e)

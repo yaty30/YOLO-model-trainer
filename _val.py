@@ -15,14 +15,17 @@ class CipherValidator:
         return f"{encrypted_payload.decode('utf-8')}[*]{cryptographic_key.decode('utf-8')}"
         
     def decrypt_message(self, cryptographic_key, encrypted_payload):
-        # Initialize cipher with the provided cryptographic key
-        decryption_cipher = Fernet(cryptographic_key.encode('utf-8'))
+        try:
+            # Initialize cipher with the provided cryptographic key
+            decryption_cipher = Fernet(cryptographic_key.encode('utf-8'))
 
-        # Decrypt the encrypted payload with additional steps
-        decrypted_reversed_message = decryption_cipher.decrypt(encrypted_payload.encode('utf-8'))
-        utf8_decoded_message = decrypted_reversed_message[::-1]
+            # Decrypt the encrypted payload with additional steps
+            decrypted_reversed_message = decryption_cipher.decrypt(encrypted_payload.encode('utf-8'))
+            utf8_decoded_message = decrypted_reversed_message[::-1]
 
-        return utf8_decoded_message.decode('utf-8')
+            return utf8_decoded_message.decode('utf-8')
+        except Exception as e:
+            return None
     
     def validate_character_count(self, decrypted_message):
         # Calculate the target character using a complex formula
