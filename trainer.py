@@ -305,7 +305,7 @@ if __name__ == "__main__":
         tiger_model = ("my_first_project-jtcqt", 2)
         giraffe_model = ("projetgirafe", 3)
         lionfish_model = ("lionfish-6f19u", 1)
-        
+
         data = [
             { "target": "clownfish", "model": fish_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\clownfish.mp4" },
             { "target": "tiger", "model": tiger_model, "vid_src": r"C:\Users\James\Desktop\Codes\HaarCascade\source_frames\tiger.mp4" },
@@ -316,3 +316,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(e)
+        print("Exiting...")
